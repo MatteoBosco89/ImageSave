@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var actions = document.getElementById('actions');
     actions.addEventListener('click', function(me) {
         if($(me.target).attr("id") === "createImageSaveZip"){
-            $("#actions").html('<div style="background-image: url('+loader+'); background-position:center; background-repeat:no-repeat;     background-size:60px; width:100%; height:100px;"></div>') 
+            $("#actions").html('<div style="background-image: url('+loader+'); background-position:center; background-repeat:no-repeat;     background-size:60px; width:100%; height:60px;"></div>') 
             createZip();
         }
         if($(me.target).attr("id") === "clearImageSave"){
