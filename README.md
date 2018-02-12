@@ -16,4 +16,6 @@ The project begins
 
 # Credits
 JQuery for DOM manipulation
+
 zip.js for Zip file creation
+
