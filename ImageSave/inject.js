@@ -3,9 +3,17 @@ var help = chrome.extension.getURL('87071a5d6d7a5b405d2c3472fa37ab3e3362550d.png
 var save = chrome.extension.getURL('8bd95fbe91ab73ad5a57f1ef4dd0c0ea9a9edf1d.png');
 var bgext = chrome.extension.getURL('efc4efabc6a0967f379426dee497b3015394e2cf.png');
 var loader = chrome.extension.getURL('5edcf9cd11279d4339c93b5adb9b7ced0810803c.gif');
+//override dello stile
 
-$(document.head).after("<div id='2b99tr44rdp11pv66be3xx32m' style='z-index:10000; position:fixed; top:200px; height:auto; right:0px; display:block; width:12px; background-color: #e6e2e2; box-shadow: 0 1px 2px 2px rgba(0,1,0,0.35);'><div id='45fa23p1q91r432plc63rtshk' style='display:block; background-image:url("+pointer+"); background-size:30px; background-repeat:no-repeat; background-position:center; width:30px; height:30px; margin:10px 5px 10px 5px;' title='Select Images'></div><div id='75fa23p1q91r432plc63rtshk' style='display:block; background-image:url("+help+"); background-size:30px; background-repeat:no-repeat; background-position:center; width:30px; width:30px; height:30px; margin:10px 5px 10px 5px;' title='Help'></div></div>");
-$(document.head).after("<div id='a71449e02caf8e4357a366171ca135f6ae627dfa' style='width:100%; height:100%; position:fixed; left:0; top:0; background-color:rgba(0,0,0,0.7); z-index:9999; display:none;'><div id='d854a6da9a6esaverc91778e464667bca8805fb54' style='position:absolute; display:none; background-color:#FFFFFF; width:90%; top:0; height:75%; bottom:0; left:0; right:0; margin:auto; z-index:10000; background-repeat:no-repeat; background-position:center; background-image:url("+loader+"); text-align:center;'><h3 style='margin:20px;'>Saving..</h3></div><div id='d854a6da9a6e5678c91778e464667bca8805fb54' style='position:absolute; display:none; background-color:#FFFFFF; width:90%; top:0; height:75%; bottom:0; left:0; right:0; margin:auto; z-index:10000; background-repeat:no-repeat; background-position:center; background-image:url("+loader+"); text-align:center;'><h3 style='margin:5px; font-weight:bold;'>Loading...</h3><h3 style='margin:5px; font-weight:bold;'>Images: <span id='09efb81605850063a8ffcbfe10a562b3acdb0124'></span>/<span id='4f16d7a4d6a74002484c29341b5de8cdf5e69521'></span> completed</h3><h3 style='margin:5px; font-weight:bold;'>Background Images: <span id='bb48f38dffe288175c845ade9ee7dd3d80f5ff55'></span>/<span id='610e8ba20ca7eedf8435716a41da5b814f902f0e'></span> completed</h3><h3 style='margin:5px; font-weight:bold;'>Base64 Images: <span id='bb48f38dffe288ba5c845see9tr7dd3d80f5ff55'></span>/<span id='610e8ba20ca7esef8435716c41om5b814f902f0e'></span> completed</h3></div><div id='b4099535deae134c34fdc3cc57715eaca731bc2c' style='display:inline-block; width:90%; height:75%; background-color:rgb(230, 226, 226); box-shadow: 0px 0px 10px 10px black; position:absolute; top:0; left:0; right:0; bottom:0; margin:auto;'><span id='fd45gt567hgtr4321efgtrre' style='cursor:pointer; display:block; width:33%; height:25px; float:left; background-color:rgb(230, 226, 226);'><h3 style='margin:2px; text-align:center;'>Images</h3></span><span id='3lkgd9dsj9sd2asd21d' style='cursor:pointer; float:left; display:block; width:33%; height:25px; background-color:#FFFFFF;'><h3 style='margin:2px; text-align:center;'>Background Images</h3></span><span id='3lkbgd9dsja9sd2asds21de' style='cursor:pointer; float:left; display:block; width:33%; height:25px; background-color:#FFFFFF;'><h3 style='margin:2px; text-align:center;'>Base64 Images</h3></span><div id='c2c4a4101e3a969f62184ebd6508f4bb0b4e3e1e' style='width:100%; height:calc(100% - 25px); overflow-y:auto; text-align:center;'></div><div id='47e32555cfb508eb77b853e40cd372b12ed9453b' style='width:100%; height:calc(100% - 25px); overflow-y:auto; display:none; text-align:center;'></div><div id='861c4ed2fdb3de49cc91d402245d9a7b414833d7' style='width:100%; height:calc(100% - 25px); overflow-y:auto; display:none; text-align:center;'></div></div></div>");
+var h3Tag = "color:black; margin:2px; background-color:transparent; background-image:none; text-decoration:none; font-size: 18px; font-weight:bold; font-family:arial,sans-serif; text-align:center; width:100%; height:auto; display:block;";
+var h3Tag2 = "color:black; margin:10px; background-color:transparent; background-image:none; text-decoration:none; font-size: 18px; font-weight:bold; font-family:arial,sans-serif; text-align:center; width:100%; height:auto; display:block;";
+var aTag = "color:black; background-color:transparent; background-image:none; text-decoration:none; cursor:pointer; font-family:arial,sans-serif; font-size:15px; font-weight:normal;";
+
+
+
+
+$(document.head).after("<div id='2b99tr44rdp11pv66be3xx32m' style='z-index:10000; position:fixed; top:200px; height:auto; right:0px; display:block; width:12px; background-color: #e6e2e2; box-shadow: 0 1px 2px 2px rgba(0,1,0,0.35);'><div id='45fa23p1q91r432plc63rtshk' style='display:block; background-image:url("+pointer+"); background-size:30px; background-repeat:no-repeat; background-position:center; width:30px; height:30px; margin:10px 5px 10px 5px;' title='Select Images'></div><div id='75fa23p1q91r432plc63rtshk' style='display:block; background-image:url("+help+"); background-size:30px; background-repeat:no-repeat; background-position:center; width:30px; width:30px; height:30px; margin:10px 5px 10px 5px; background-color:transparent;' title='Help'></div></div>");
+$(document.head).after("<div id='a71449e02caf8e4357a366171ca135f6ae627dfa' style='width:100%; height:100%; position:fixed; left:0; top:0; background-color:rgba(0,0,0,0.7); z-index:9999; display:none;'><div id='c756da0d014384e59cfa04cd7ffd86011c5f948e' style='position:absolute; display:none; background-color:#FFFFFF; width:85%; top:0; height:75%; bottom:0; left:0; right:0; margin:auto; z-index:10000; background-image:none; text-align:center;'><h3 style='"+h3Tag+"'><br>Welcome to ImageSave!<br><br><font style='font-weight:normal; display:block; text-align:justify; width:90%; margin:auto;'>To start using this awesome extension immediately you have to click, in the small pop-up menu, the <b>cursor icon</b>. Once pressed, a tab similar to this will appear, filled with all the images taken from the current internet page. The images are divided into three categories: <b>\"Images\"</b>, <b>\"Background Images\"</b> and <b>\"Base64 Images\"</b>. The first and second can be viewed fully by clicking on the <b>\"See me in a new tab\"</b> link, the third, unfortunately, can not be viewed this way. To choose the images you need just click on it, they will be delineated by a green border. To save the image selection, press the disk icon in the pop-up menu. <b>ImageSave</b> will think about saving the selection. It is possible to continue browsing on other web pages and select and save, in the same way, other images, as long as you want. When you are satisfied, click on the <b>ImageSave</b> icon on the top right and follow the actions indicated. After downloading the images, it is advisable to press the <b>\"Clear Data\"</b> button. To close the help section click again on the icon marked with <b>\" i \"</b>. Thank you for using ImageSave.</font></h3></div><div id='d854a6da9a6esaverc91778e464667bca8805fb54' style='position:absolute; display:none; background-color:#FFFFFF; width:85%; top:0; height:75%; bottom:0; left:0; right:0; margin:auto; z-index:10000; background-repeat:no-repeat; background-position:center; background-image:url("+loader+"); text-align:center;'><h3 style='"+h3Tag+"'>Saving..</h3></div><div id='d854a6da9a6e5678c91778e464667bca8805fb54' style='position:absolute; display:none; background-color:#FFFFFF; width:85%; top:0; height:75%; bottom:0; left:0; right:0; margin:auto; z-index:10000; background-repeat:no-repeat; background-position:center; background-image:url("+loader+"); text-align:center;'><h3 style='"+h3Tag2+"'>Loading...</h3><h3 style='"+h3Tag2+"'>Images: <span id='09efb81605850063a8ffcbfe10a562b3acdb0124'></span>/<span id='4f16d7a4d6a74002484c29341b5de8cdf5e69521'></span> completed</h3><h3 style='"+h3Tag2+"'>Background Images: <span id='bb48f38dffe288175c845ade9ee7dd3d80f5ff55'></span>/<span id='610e8ba20ca7eedf8435716a41da5b814f902f0e'></span> completed</h3><h3 style='"+h3Tag2+"'>Base64 Images: <span id='bb48f38dffe288ba5c845see9tr7dd3d80f5ff55'></span>/<span id='610e8ba20ca7esef8435716c41om5b814f902f0e'></span> completed</h3></div><div id='b4099535deae134c34fdc3cc57715eaca731bc2c' style='display:inline-block; width:85%; height:75%; background-color:rgb(230, 226, 226); box-shadow: 0px 0px 10px 10px black; position:absolute; top:0; left:0; right:0; bottom:0; margin:auto;'><span id='fd45gt567hgtr4321efgtrre' style='cursor:pointer; display:block; width:33%; height:25px; float:left; background-color:rgb(230, 226, 226);'><h3 style='"+h3Tag+"'>Images</h3></span><span id='3lkgd9dsj9sd2asd21d' style='cursor:pointer; float:left; display:block; width:33%; height:25px; background-color:#FFFFFF;'><h3 style='"+h3Tag+"'>Background Images</h3></span><span id='3lkbgd9dsja9sd2asds21de' style='cursor:pointer; float:left; display:block; width:34%; height:25px; background-color:#FFFFFF;'><h3 style='"+h3Tag+"'>Base64 Images</h3></span><div id='c2c4a4101e3a969f62184ebd6508f4bb0b4e3e1e' style='background-color:transparent; background-image:none; width:100%; height:calc(100% - 25px); overflow-y:auto; text-align:center;'></div><div id='47e32555cfb508eb77b853e40cd372b12ed9453b' style='width:100%; height:calc(100% - 25px); overflow-y:auto; display:none; text-align:center; background-color:transparent; background-image:none;'></div><div id='861c4ed2fdb3de49cc91d402245d9a7b414833d7' style='background-color:transparent; background-image:none; width:100%; height:calc(100% - 25px); overflow-y:auto; display:none; text-align:center;'></div></div></div>");
 
 var detectedImages = [];
 var detectedBgUrls = [];
@@ -207,7 +215,7 @@ function printImgs(){
             y++;
             $('#4f16d7a4d6a74002484c29341b5de8cdf5e69521').html(l);
             $('#09efb81605850063a8ffcbfe10a562b3acdb0124').html(y);
-            $("#c2c4a4101e3a969f62184ebd6508f4bb0b4e3e1e").append('<div style="width:260px; display:inline-block;"><div id="4bcd4ea42058817f5b78c7e830480c7d4b82b22a-'+x+'" style="margin:5px; position:relative; width:250px; height:210px; display:inline-block; overflow:hidden; background-image:url('+bgext+');"><img style="position:absolute; top:-100%; bottom:-100%; height:auto; width:auto; left:-100%; right:-100%; margin:auto;" src="'+detectedImages[x]+'"></div><a href="'+detectedImages[x]+'" style="text-decoration:none; cursor:pointer; color:#000000;" target="_blank"><h3 style="margin: 0px 0px 5px 0px; display:block; width:100%">See me in new tab</h3></a></div>');
+            $("#c2c4a4101e3a969f62184ebd6508f4bb0b4e3e1e").append('<div style="width:260px; display:inline-block;"><div id="4bcd4ea42058817f5b78c7e830480c7d4b82b22a-'+x+'" style="margin:5px; position:relative; width:250px; height:210px; display:inline-block; overflow:hidden; background-image:url('+bgext+');"><img style="position:absolute; top:-100%; bottom:-100%; height:auto; width:auto; left:-100%; right:-100%; margin:auto;" src="'+detectedImages[x]+'"></div><a href="'+detectedImages[x]+'" style="'+aTag+'" target="_blank"><h3 style="'+h3Tag+'">See me in new tab</h3></a></div>');
         }
         imgTrack = detectedImages.length;
     }
@@ -219,7 +227,7 @@ function printImgs(){
             y++;
             $('#610e8ba20ca7eedf8435716a41da5b814f902f0e').html(l);
             $('#bb48f38dffe288175c845ade9ee7dd3d80f5ff55').html(y);
-            $("#47e32555cfb508eb77b853e40cd372b12ed9453b").append('<div style="width:260px; display:inline-block;"><div id="4bcd4ea42058817f5b78c7e830480c7d4b82b22abg-'+x+'" style="margin:5px; position:relative; width:250px; height:210px; display:inline-block; overflow:hidden; background-image:url('+bgext+');"><img style="position:absolute; top:-100%; bottom:-100%; height:auto; width:auto; left:-100%; right:-100%; margin:auto;" src="'+detectedBgUrls[x]+'"></div><a href="'+detectedBgUrls[x]+'" style="text-decoration:none; cursor:pointer; color:#000000;" target="_blank"><h3 style="margin: 0px 0px 5px 0px; display:block; width:100%">See me in new tab</h3></a></div>');
+            $("#47e32555cfb508eb77b853e40cd372b12ed9453b").append('<div style="width:260px; display:inline-block;"><div id="4bcd4ea42058817f5b78c7e830480c7d4b82b22abg-'+x+'" style="margin:5px; position:relative; width:250px; height:210px; display:inline-block; overflow:hidden; background-image:url('+bgext+');"><img style="position:absolute; top:-100%; bottom:-100%; height:auto; width:auto; left:-100%; right:-100%; margin:auto;" src="'+detectedBgUrls[x]+'"></div><a href="'+detectedBgUrls[x]+'" style="'+aTag+'" target="_blank"><h3 style="'+h3Tag+'">See me in new tab</h3></a></div>');
         }
         bgTrack = detectedBgUrls.length;
     }
@@ -254,8 +262,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 
 /*
-*   con document.body event.preventDefault() viene lanciato, non tutto il documento ma solo il body
-*   viene delegato per l'evento 'click' in questo caso
+*   
 */
 
 $(document).on("click", "[id^=4bcd4ea42058817f5b78c7e830480c7d4b82b22a]", function(event){ 
@@ -291,6 +298,7 @@ $(document).on('DOMNodeInserted', function(e) {
 
 $(document).on({
    click: function() {
+       if($("#c756da0d014384e59cfa04cd7ffd86011c5f948e").css("display") === "none"){
        $.when(
        $(this).css({'background-image':'url('+save+')'}),
        $(this).prop("id", "45fa23p1q91r432plc63rtshf"),
@@ -299,7 +307,8 @@ $(document).on({
        running = true).then(function(){
            startIMGSave(); 
        });
-   } 
+       } 
+   }
 }, "#45fa23p1q91r432plc63rtshk");
 
 
@@ -311,6 +320,20 @@ $(document).on({
        saveIMGSave();
    } 
 }, "#45fa23p1q91r432plc63rtshf");
+
+$(document).on({
+   click: function() {
+       if(!running){
+       if($("#c756da0d014384e59cfa04cd7ffd86011c5f948e").css("display") === "block"){
+           $("#a71449e02caf8e4357a366171ca135f6ae627dfa").css("display", "none");
+           $("#c756da0d014384e59cfa04cd7ffd86011c5f948e").css("display", "none");
+       }else if($("#c756da0d014384e59cfa04cd7ffd86011c5f948e").css("display") === "none"){
+           $("#a71449e02caf8e4357a366171ca135f6ae627dfa").css("display", "inline-block");
+           $("#c756da0d014384e59cfa04cd7ffd86011c5f948e").css("display", "block");
+       }
+       }
+   } 
+}, "#75fa23p1q91r432plc63rtshk");
 
 $(document).on({
     mouseenter: function () {
