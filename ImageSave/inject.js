@@ -97,15 +97,11 @@ function isBase64(url){
     return false
 }
 
-function isBgURL(url){
-    if(url.indexOf('url(') >= 0){
-        return true
-    }
-    return false
-}
+var backgroundUrls = import(chrome.runtime.getURL('background-urls.js'));
 
-function startIMGSave(e){
+async function startIMGSave(e){
   if(running){
+      var extractBackgroundUrls = (await backgroundUrls).extractBackgroundUrls;
       var elForBg;
       var elForImg;
       if (arguments.length === 0) {
@@ -118,59 +114,15 @@ function startIMGSave(e){
       //BACKGROUND-IMAGE
       var bgimages = $(elForBg).find("*:not(#75fa23p1q91r432plc63rtshk,#45fa23p1q91r432plc63rtshk,#45fa23p1q91r432plc63rtshf,#b4099535deae134c34fdc3cc57715eaca731bc2c,#c2c4a4101e3a969f62184ebd6508f4bb0b4e3e1e,#47e32555cfb508eb77b853e40cd372b12ed9453b)");
       for(var x = 0; x < bgimages.length; x++){
-        if($(bgimages[x]).css("background-image") !== "none" && isBgURL($(bgimages[x]).css("background-image"))){
-            var bgURLtoSplit = $(bgimages[x]).css("background-image").replace('url(','').replace(/\)/g,'').replace(/\"/gi, "").replace(/ /g, '');
-            //console.log(bgURLtoSplit);
-            var bgURL = false;
-            var bgURLSuspectedNotNone = false;
-            if(!isBase64(bgURLtoSplit)){
-                if(bgURLtoSplit.split(', ').length >= 0){
-                    var countSplit = bgURLtoSplit.split(', ').length;
-                    countSplit--;
-                    bgURL = bgURLtoSplit.split(', ')[countSplit];
-                    bgURL = checkUrl(bgURL);
-                    bgURLSuspectedNotNone = '';
-                    //controlla se background-image ha doppio parametro -> url('...'), url('...')
-                    if(bgURLtoSplit.split(', ')[countSplit+1] != 'none' && bgURLtoSplit.split(', ')[countSplit+1] != undefined){
-                        bgURLSuspectedNotNone = bgURLtoSplit.split(', ')[countSplit+1];
-                        bgURLSuspectedNotNone = checkUrl(bgURLSuspectedNotNone.replace('url(','').replace(')','').replace(' ', ''));
-                    }
-                }
-                if(bgURLtoSplit.split(',').length >= 0){
-                    var countSplit = bgURLtoSplit.split(',').length;
-                    countSplit--;
-                    bgURL = bgURLtoSplit.split(',')[countSplit];
-                    bgURL = checkUrl(bgURL);
-                    bgURLSuspectedNotNone = '';
-                    //controlla se background-image ha doppio parametro -> url('...'), url('...')
-                    if(bgURLtoSplit.split(',')[countSplit+1] != 'none' && bgURLtoSplit.split(',')[countSplit+1] != undefined){
-                        bgURLSuspectedNotNone = bgURLtoSplit.split(',')[countSplit+1];
-                        bgURLSuspectedNotNone = checkUrl(bgURLSuspectedNotNone.replace('url(','').replace(')','').replace(' ', ''));
-                    }
-                }
-                else{
-                    bgURL = bgURLtoSplit;
-                }
-                
-            }
-            if(!bgURL){
-                bgURL = bgURLtoSplit;
-            }
-            if(bgURL != -1){
-                if(isBase64(bgURL) && !isHere(detectedBase64, bgURL)){
-                    detectedBase64.push(bgURL);
-                }
-                else if(!isBase64(bgURL) && !isHere(detectedBgUrls, bgURL)){
-                    detectedBgUrls.push(bgURL);
+        var urls = extractBackgroundUrls($(bgimages[x]).css("background-image"), document.baseURI);
+        for(var u = 0; u < urls.length; u++){
+            if(isBase64(urls[u])){
+                if(!isHere(detectedBase64, urls[u])){
+                    detectedBase64.push(urls[u]);
                 }
             }
-            if(bgURLSuspectedNotNone != -1 && bgURLSuspectedNotNone){
-                if(isBase64(bgURLSuspectedNotNone) && !isHere(detectedBase64, bgURLSuspectedNotNone)){
-                    detectedBase64.push(bgURLSuspectedNotNone);
-                }
-                else if(!isBase64(bgURLSuspectedNotNone) && !isHere(detectedBgUrls, bgURLSuspectedNotNone)){
-                    detectedBgUrls.push(bgURLSuspectedNotNone);
-                }
+            else if(!isHere(detectedBgUrls, urls[u])){
+                detectedBgUrls.push(urls[u]);
             }
         }
       }
